@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # N.O.E. - Manual de Usuario  
 **Detector Avanzado de Fuerza de Contraseñas**  
 *Versión 2.0 - Año 3000*  
@@ -232,3 +233,7 @@ Visita el repositorio en GitHub y sigue las instrucciones de contribución.
 - **Exención de responsabilidad**: N.O.E. es una herramienta de ayuda, no una garantía de seguridad. El autor no se hace responsable del mal uso de la misma ni de daños derivados de su uso.
 
 ---
+=======
+# noe
+Es una herramienta web futurista diseñada para ayudarte a crear y evaluar contraseñas seguras
+>>>>>>> 32177ca7aa6000b8ec4c012b9becb6e5bcce863b
