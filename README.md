@@ -93,8 +93,8 @@ Ve a `http://127.0.0.1:8000` y comienza a usar N.O.E.
 
 Una vez que la aplicación esté corriendo, verás la pantalla principal con los siguientes elementos:
 
-- **Logo central** (si lo has añadido)
-- **Título** "N.O.E. 3000"
+- **Logo central** 
+- **Título** "N.O.E. (Neural Oracle of Encryption) "
 - **Campo de entrada** para la contraseña
 - **Botón para mostrar/ocultar** la contraseña
 - **Barra de fortaleza** que se llena según la puntuación
