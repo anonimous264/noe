@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # N.O.E. - Manual de Usuario  
 **Detector Avanzado de Fuerza de Contraseñas**  
-*Versión 2.0 - Año 3000*  
+*Versión 1.0 *  
 Autor: Abdias Samurl R. Ch.
 
 <p align="center">
@@ -56,8 +56,8 @@ Sigue estos pasos para instalar y ejecutar N.O.E. en tu propio equipo:
 
 ### Paso 1: Clonar o descargar el proyecto
 ```bash
-git clone https://github.com/tu-usuario/noe-password-detector.git
-cd noe-password-detector
+git clone https://github.com/anonimous264/noe.git
+cd noe
 ```
 
 ### Paso 2: Crear un entorno virtual (recomendado)
@@ -206,10 +206,10 @@ Visita el repositorio en GitHub y sigue las instrucciones de contribución.
 
 ## 9. Soporte y Contacto
 
-- **Repositorio oficial**: [GitHub - N.O.E.](https://github.com/tu-usuario/noe-password-detector)
+- **Repositorio oficial**: [GitHub - N.O.E.](https://github.com/anonimous264/noe.git)
 - **Reportar problemas**: Abre un issue en GitHub.
-- **Correo electrónico**: abdias@example.com (sustituir por el real)
-- **Twitter**: @abdias_dev (opcional)
+- **Correo electrónico**: abdiassamuel15@gmail.com
+- **Twitter**: @abdias
 
 ---
 
