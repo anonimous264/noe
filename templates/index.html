@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N.O.E. Neural Oracle of Encryption</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Fondo Matrix mejorado (canvas) -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="container">
+        <div class="card">
+            <!-- Logo futurista centrado -->
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='image/logo.png') }}" alt="N.O.E. Logo" class="logo">
+            </div>
+
+            <h1>N.O.E. <span class="badge">3000</span></h1>
+            <p class="subtitle">Asistente de seguridad · por ABDIAS</p>
+
+            <div class="input-group">
+                <label for="password">
+                    <span class="icon">
+                        <!-- Heroicon micro: candado -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="20" height="20">
+                            <path fill-rule="evenodd" d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-1.5V4.5A3.5 3.5 0 0 0 8 1Zm0 2a1.5 1.5 0 0 1 1.5 1.5V6h-3V4.5A1.5 1.5 0 0 1 8 3Z" clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    Contraseña
+                </label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Escribe tu contraseña" autocomplete="off">
+                    <button id="togglePassword" class="toggle-btn" type="button">
+                        <!-- Heroicon micro: ojo abierto (por defecto) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="20" height="20">
+                            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />
+                            <path fill-rule="evenodd" d="M1.38 8.28a.87.87 0 0 1 0-.56 7.6 7.6 0 0 1 2.96-4.44A7.56 7.56 0 0 1 8 2c1.4 0 2.73.37 3.87 1.06A7.6 7.6 0 0 1 14.8 7.3a.87.87 0 0 1 0 .4 7.6 7.6 0 0 1-2.93 4.24A7.56 7.56 0 0 1 8 13a7.56 7.56 0 0 1-3.87-1.06A7.6 7.6 0 0 1 1.2 7.72a.87.87 0 0 1 .18-.44ZM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Barra de fortaleza con brillo -->
+            <div class="meter">
+                <div id="strength-bar" class="bar"></div>
+            </div>
+
+            <!-- Resultados con mensajes motivadores -->
+            <div id="strength-text" class="strength-badge"></div>
+            <div id="crack-time" class="crack-time"></div>
+            <div id="pwned-status" class="pwned-status"></div>
+            <div id="warning" class="warning-message"></div>
+
+            <!-- Cuadrícula de criterios clásicos -->
+            <div id="detail-grid" class="detail-grid"></div>
+
+            <!-- Sugerencias (sin emoticonos, solo iconos) -->
+            <div id="suggestions" class="suggestions"></div>
+
+            <!-- Generador de contraseñas -->
+            <div class="generator">
+                <h3>
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="20" height="20">
+                            <path fill-rule="evenodd" d="M8 .75a.75.75 0 0 1 .75.75v.766a5.741 5.741 0 0 1 3.48 1.155l.54-.54a.75.75 0 1 1 1.06 1.06l-.54.54c.717 1.076 1.14 2.347 1.155 3.48h.765a.75.75 0 0 1 0 1.5h-.765a5.74 5.74 0 0 1-1.155 3.48l.54.54a.75.75 0 1 1-1.06 1.06l-.54-.54A5.741 5.741 0 0 1 8.75 14.5v.765a.75.75 0 0 1-1.5 0V14.5a5.741 5.741 0 0 1-3.48-1.155l-.54.54a.75.75 0 1 1-1.06-1.06l.54-.54A5.74 5.74 0 0 1 1.5 8.75H.75a.75.75 0 0 1 0-1.5h.765A5.74 5.74 0 0 1 2.46 3.77l-.54-.54a.75.75 0 1 1 1.06-1.06l.54.54A5.741 5.741 0 0 1 6.25 1.5V.75A.75.75 0 0 1 8 .75ZM5 8a3 3 0 1 1 6 0 3 3 0 0 1-6 0Z" clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    Generador cuántico
+                </h3>
+                <div class="generator-controls">
+                    <input type="number" id="password-length" min="8" max="64" value="16">
+                    <button id="generate-btn" class="btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="18" height="18">
+                            <path fill-rule="evenodd" d="M8 3.5a.75.75 0 0 1 .75.75v3h3a.75.75 0 0 1 0 1.5h-3v3a.75.75 0 0 1-1.5 0v-3h-3a.75.75 0 0 1 0-1.5h3v-3A.75.75 0 0 1 8 3.5Z" clip-rule="evenodd" />
+                        </svg>
+                        Generar
+                    </button>
+                </div>
+                <div id="generated-password" class="generated-password"></div>
+            </div>
+
+            <div class="footer">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                        <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24c.304-.143.662-.352 1.048-.625a11.777 11.777 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.54 1.54 0 0 0-1.044-1.263 62.669 62.669 0 0 0-2.887-.87C9.843.266 8.69 0 8 0Zm0 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+                Análisis avanzado · zxcvbn · HIBP
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
