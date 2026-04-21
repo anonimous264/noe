@@ -44,7 +44,7 @@ pyfiglet==1.0.4
 Pygments==2.19.2
 PyMySQL==1.1.0
 python-dateutil==2.9.0.post0
-python-dotenv==1.0.0
+python-dotenv==1.2.2
 python-multipart==0.0.22
 PyYAML==6.0.3
 reportlab==4.4.10
